@@ -13,8 +13,6 @@ $(document).ready(function () {
             storageData = JSON.parse(localStorage.data);
         }
 
-        console.log(storageData);
-
         if (storageData.length == 0) {
 
             $('.data-container').hide();
@@ -46,8 +44,6 @@ $(document).ready(function () {
 
                 let nivel = $(this).attr('data-nivel');
 
-                console.log(nivel);
-
                 let html = '<input type="hidden" name="id" aria-describedby="id">' +
                     '<input type="hidden" name="nivel" value="' + nivel + '">' +
                     '<div class="form-group">' +
@@ -71,8 +67,6 @@ $(document).ready(function () {
                 $('#formEditItem [name="id"]').val(id);
                 $('#formEditItem [name="name"]').val(name);
 
-                console.log(children)
-
                 $.each(children, function (index, value) {
 
                     const qtdInputs = $('#formEditItem .form-control').length;
@@ -86,8 +80,6 @@ $(document).ready(function () {
                         '<button type="button" class="btn btn-link btn-sm remove-children">remover</button>' +
                         '</div>' +
                         '</div>';
-
-                    console.log(html);
 
                     $('#formEditItem').append(html);
 
@@ -325,8 +317,6 @@ $(document).ready(function () {
 
         });
 
-        console.log(nivel);
-
         $.each(formData, function (index, formItem) {
 
             let inputName = $(formItem).attr('name');
@@ -342,8 +332,6 @@ $(document).ready(function () {
                     formDataObject.children = Array();
                 }
 
-                console.log($(formItem).attr('data-item'));
-
                 const childrenObject = $(formItem).attr('data-item') !== undefined ? JSON.parse($(formItem).attr('data-item')) : null;
 
                 if ($(formItem).attr('data-item') == undefined) {
@@ -355,8 +343,6 @@ $(document).ready(function () {
                     });
 
                 } else {
-
-                    console.log(childrenObject);
 
                     formDataObject.children.push({
                         id: generateRandomId(),
@@ -370,8 +356,6 @@ $(document).ready(function () {
             }
 
         });
-
-        console.log(formDataObject);
 
         formDataArray = JSON.parse(localStorage.data);
 
@@ -399,8 +383,6 @@ $(document).ready(function () {
             let foundElement = findElementEdit(item, id);
 
             if (foundElement) {
-
-                console.log(foundElement);
 
                 return foundElement;
 
