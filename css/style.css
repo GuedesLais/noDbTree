@@ -1,0 +1,33 @@
+.tree-ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.tree-ul li {
+    position: relative;
+}
+
+.tree-span {
+    font-size: 20px;
+}
+
+.remove-item {
+    position: absolute;
+    right: 42px;
+}
+
+.edit-item {
+    position: absolute;
+    right: 10px;
+}
+
+li {
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+li:hover {
+    color: #212529;
+    background-color: rgba(0,0,0,.075);
+}

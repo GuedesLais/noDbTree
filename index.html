@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Website</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./js/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+  <link href="./assets/fontawesome-free-6.2.0-web/css/fontawesome.css" rel="stylesheet">
+  <link href="./assets/fontawesome-free-6.2.0-web/css/brands.css" rel="stylesheet">
+  <link href="./assets/fontawesome-free-6.2.0-web/css/solid.css" rel="stylesheet">
+  <link href="./assets/fontawesome-free-6.2.0-web/css/regular.css" rel="stylesheet">
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <input type="hidden" name="maxNivel" value="0">
+          <div class="card" style="margin-top: 100px; width: 40rem;">
+            <div class="card-header d-flex justify-content-end">
+              <button type="button" class="btn btn-primary btn-sm" onclick="openModalAdd()"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div class="card-body p-0">
+              <div class="empty-data p-5" onclick="openModalAdd()" style="display: none;">
+                Não há dados, clique aqui para cadastrar.
+              </div>
+              <div class="data-container" style="display: none;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalAddItem" tabindex="-1" aria-labelledby="modalAddItemLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAddItemLabel">Cadastrar Item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formAddItem">
+              <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" name="name" aria-describedby="name">
+              </div>
+              <div class="form-group d-flex justify-content-end">
+                <button type="button" class="btn btn-link btn-sm" onclick="addChildren('formAddItem')">Adicionar Filho</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary" onclick="addItem()">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="modalEditItem" tabindex="-1" aria-labelledby="modalEditItemLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalAddItemLabel">Editar Item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="formEditItem">
+              <input type="hidden" name="id" aria-describedby="id">
+              <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" name="name" aria-describedby="name">
+              </div>
+              <div class="form-group d-flex justify-content-end">
+                <button type="button" class="btn btn-link btm-sm" onclick="addChildren('formEditItem')">Adicionar
+                  Filho</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="submit" class="btn btn-primary" onclick="editItem()">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
+      <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+        <div class="toast-header d-flex justify-content-end">
+          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="toast-body"></div>
+      </div>
+    </div>
+  </main>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
